@@ -2,6 +2,8 @@
 
 Repo cours Angular/TS M2 IW
 
+Ne fait n'y du TS ni d'Angular en entreprise.
+
 API URL : https://gateway.marvel.com:443/v1/public
 eg : https://gateway.marvel.com:443/v1/public/characters?apikey=YOUR_PUBLIC_KEY
 
