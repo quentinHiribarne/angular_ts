@@ -1,0 +1,65 @@
+<div class="authBlock">
+  <form (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
+    <mat-card class="shipping-card">
+      <mat-card-header class="form-header">
+        <mat-card-title> Create an account </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-error *ngIf="!registerResult.success">
+          {{ registerResult.message }}
+        </mat-error>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Login" formControlName="login" />
+            </mat-form-field>
+
+            <mat-error
+              class="alert"
+              *ngIf="
+                !registerForm.get('login')?.valid &&
+                registerForm.get('login')?.touched
+              "
+            >
+              Invalid email
+            </mat-error>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Password"
+                formControlName="password"
+                type="password"
+              />
+            </mat-form-field>
+
+            <mat-error
+              class="alert"
+              *ngIf="
+                !registerForm.get('password')?.valid &&
+                registerForm.get('password')?.touched
+              "
+            >
+              <p>Password must :</p>
+              <ul>
+                <li>Be longer than 8 characters</li>
+                <li>Contain 1 upper case letter</li>
+                <li>Contain 1 special character</li>
+              </ul>
+            </mat-error>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="form-actions">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <span class="sign-in">
+          Already have an account ?
+          <a routerLink="/connexion">login</a>
+        </span>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

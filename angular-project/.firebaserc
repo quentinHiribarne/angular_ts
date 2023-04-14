@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wiki-marvel-f3a90": {
+      "hosting": {
+        "wiki-marvel": [
+          "wiki-marvel-f3a90"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wiki-marvel-f3a90"
+  }
+}

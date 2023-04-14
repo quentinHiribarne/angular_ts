@@ -1,0 +1,65 @@
+<div class="authBlock">
+  <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+    <mat-card class="shipping-card">
+      <mat-card-header class="form-header">
+        <mat-card-title> Login </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-error *ngIf="!loginResult.success">
+          {{ loginResult.message }}
+        </mat-error>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Login" formControlName="login" />
+            </mat-form-field>
+
+            <mat-error
+              class="alert"
+              *ngIf="
+                !loginForm.get('login')?.valid &&
+                loginForm.get('login')?.touched
+              "
+            >
+              Invalid email
+            </mat-error>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Password"
+                formControlName="password"
+                type="password"
+              />
+            </mat-form-field>
+
+            <mat-error
+              class="alert"
+              *ngIf="
+                !loginForm.get('password')?.valid &&
+                loginForm.get('password')?.touched
+              "
+            >
+              <p>Password must :</p>
+              <ul>
+                <li>Be longer than 8 characters</li>
+                <li>Contain 1 upper case letter</li>
+                <li>Contain 1 special character</li>
+              </ul>
+            </mat-error>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="form-actions">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <span class="sign-in">
+          Don't have an account ?
+          <a routerLink="/connexion">login</a>
+        </span>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

@@ -66,3 +66,35 @@ const addPokemon = (pokemon: Pokemon, quantity?: number) => {
 
   // ...
 };
+
+// Readonly
+// TS supporte les propriétés en lecture seule
+interface Test {
+  readonly name: string;
+}
+
+const test: Test = {
+  name: "Hello",
+};
+
+// Keyof
+interface Test2 {
+  name: string;
+  age: number;
+}
+
+type Test2Keys = keyof Test2;
+
+const getProperty = <T, K extends keyof T>(obj: T, key: K): T[K] => {
+  return obj[key];
+};
+
+const test2: Test2 = { name: "Hello", age: 25 };
+
+const nameValue = getProperty(test2, "name");
+
+// {{}} interpolation
+// []   property binding
+// ()   event binding
+// *    structural directive
+// #    template reference variable

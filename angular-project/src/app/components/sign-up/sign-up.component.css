@@ -1,0 +1,62 @@
+.authBlock {
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 60%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-header {
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sign-in {
+  font-size: small;
+}
+
+.shipping-card {
+  min-width: 120px;
+  margin: 20px auto;
+}
+
+.mat-radio-button {
+  display: block;
+  margin: 5px 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.alert {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.alert > p {
+  margin-top: -1rem;
+}

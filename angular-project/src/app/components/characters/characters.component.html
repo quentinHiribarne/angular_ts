@@ -1,0 +1,78 @@
+<div class="character-container">
+  <!-- <mat-form-field>
+    <mat-label>Filtrer</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Spider" #input>
+  </mat-form-field> -->
+
+  <div
+    class="character-loading-shade"
+    *ngIf="isLoadingResults || isRateLimitReached"
+  >
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <div class="character-rate-limit-reached" *ngIf="isRateLimitReached">
+      L'API de Marvel a atteint sa limite de requêtes journalières.
+    </div>
+  </div>
+
+  <p [innerHTML]="attributionHTML" class="attribution"></p>
+  <table
+    mat-table
+    [dataSource]="data"
+    class="full-width-table"
+    matSort
+    aria-label="Elements"
+  >
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <!-- Thumbnail Column -->
+    <ng-container matColumnDef="thumbnail">
+      <th mat-header-cell *matHeaderCellDef>Image</th>
+      <td mat-cell *matCellDef="let row">
+        <img
+          [src]="row.thumbnail.path + '.' + row.thumbnail.extension"
+          alt="thumbnail"
+          class="thumbnail"
+        />
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nom</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let row">{{ row.description }}</td>
+    </ng-container>
+
+    <!-- Modified Column -->
+    <ng-container matColumnDef="modified">
+      <th mat-header-cell *matHeaderCellDef>Modifié</th>
+      <td mat-cell *matCellDef="let row">{{ row.modified }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      class="row"
+    ></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="total"
+    [pageIndex]="0"
+    [pageSize]="limit"
+    [pageSizeOptions]="[limit]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

@@ -1,0 +1,40 @@
+.story-container {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.attribution {
+  font-size: x-small;
+}
+
+.story-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-rate-limit-reached {
+  max-width: 360px;
+  text-align: center;
+}
+
+.row {
+  cursor: pointer;
+}
+
+.thumbnail {
+  max-height: 5rem;
+  max-width: 5rem;
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
